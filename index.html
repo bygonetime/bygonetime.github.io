@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no" />
+  <title>AA计算器</title>
+
+  <script>
+
+		function jisuan() {
+
+			var input1 = Number(document.getElementById("inputtext1").value);
+			var input2 = Number(document.getElementById("inputtext2").value);
+			var input3 = Number(document.getElementById("inputtext3").value);
+			var input4 = Number(document.getElementById("inputtext4").value);
+			var input5 = Number(document.getElementById("inputtext5").value);
+			var input6 = Number(document.getElementById("inputtext6").value);
+			var input7 = Number(document.getElementById("inputtext7").value);
+			var input8 = Number(document.getElementById("inputtext8").value);
+			var input9 = Number(document.getElementById("inputtext9").value);
+			var input10 = Number(document.getElementById("inputtext10").value);
+			var input11 = Number(document.getElementById("inputtext11").value);
+			var input12 = Number(document.getElementById("inputtext12").value);
+
+			var sum=Number(input1+input2+input3+input4+input5+input6+input7+input8+input9+input10+input11);
+			//alert(sum);
+			var less=Number(sum - input12);
+			//alert(less);
+			var per=Number(less/sum);
+			//alert(per);
+			
+			var floor1 = floor((input1*(1-per)).toFixed(2));
+			var floor2 = floor((input2*(1-per)).toFixed(2));
+			var floor3 = floor((input3*(1-per)).toFixed(2));
+			var floor4 = floor((input4*(1-per)).toFixed(2));
+			var floor5 = floor((input5*(1-per)).toFixed(2));
+			var floor6 = floor((input6*(1-per)).toFixed(2));
+			var floor7 = floor((input7*(1-per)).toFixed(2));
+			var floor8 = floor((input8*(1-per)).toFixed(2));
+			var floor9 = floor((input9*(1-per)).toFixed(2));
+			var floor10 = floor((input10*(1-per)).toFixed(2));
+			var floor11 = floor((input11*(1-per)).toFixed(2));
+
+			document.getElementById("grey_1").innerText=floor1+"-----"+(input1*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_2").innerText=floor2+"-----"+(input2*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_3").innerText=floor3+"-----"+(input3*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_4").innerText=floor4+"-----"+(input4*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_5").innerText=floor5+"-----"+(input5*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_6").innerText=floor6+"-----"+(input6*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_7").innerText=floor7+"-----"+(input7*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_8").innerText=floor8+"-----"+(input8*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_9").innerText=floor9+"-----"+(input9*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_10").innerText=floor10+"-----"+(input10*(1-per)).toFixed(2)+"-----";
+			document.getElementById("grey_11").innerText=floor11+"-----"+(input11*(1-per)).toFixed(2)+"-----";
+			
+			var sum2 = floor1+floor2+floor3+floor4+floor5+floor6+floor7+floor8+floor9+floor10+floor11;
+			document.getElementById("grey_12").innerText=sum2+"---------";
+			//alert(floor(11.51));
+			if(sum2 >= input12){
+				document.getElementById("grey_12").style.color="Green";
+			}else{
+				document.getElementById("grey_12").style.color="Red";
+			}
+			
+		}
+		
+		function floor(v){
+			
+			var num = (Number(v).toFixed(1)-parseInt(v)).toFixed(1);//小数值
+
+			if(num<0.3){
+				return parseInt(v);
+			}else if(num<0.7){
+				return parseInt(v)+0.5;
+			}else{
+				return parseInt(v)+1;
+			}
+		
+		}
+</script>
+</head>
+<body>
+<header>
+
+	<h1>计算器</h1>
+	
+</header>
+<article class="container noFooter">
+  <section class="conBox noPright">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabtd">
+      <tr>
+        <td colspan="2"><label id="grey_1">01：</label><input   value=0 maxlength="15" id="inputtext1"></td>
+	  </tr>
+	  <tr>
+		<td colspan="2"><label id="grey_2">02：</label><input   value=0 maxlength="15" id="inputtext2"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><label id="grey_3">03：</label><input  value=0 maxlength="15" id="inputtext3"></td>
+		</tr>
+	  <tr>
+		<td colspan="2"><label id="grey_4">04：</label><input   value=0 maxlength="15" id="inputtext4"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><label id="grey_5">05：</label><input    value=0 maxlength="15" id="inputtext5"></td>
+		</tr>
+	  <tr>
+		<td colspan="2"><label id="grey_6">06：</label><input    value=0 maxlength="15" id="inputtext6"></td>
+      </tr>
+
+      <tr>
+		<td colspan="2"><label id="grey_7">07：</label><input   value=0 maxlength="15" id="inputtext7"></td>
+		</tr>
+	  <tr>
+		<td colspan="2"><label id="grey_8">08：</label><input  value=0 maxlength="15" id="inputtext8"></td>
+      </tr>
+
+	  <tr>
+        <td colspan="2"><label id="grey_9">09：</label><input   value=0 maxlength="15" id="inputtext9"></td>
+		</tr>
+	  <tr>
+        <td colspan="2"><label id="grey_10">10：</label><input   value=0 maxlength="15" id="inputtext10"></td>
+      </tr>
+	  <tr>
+        <td colspan="2"><label id="grey_11">11：</label><input   value=0 maxlength="15" id="inputtext11"></td>
+      </tr>
+		 <tr>
+	          <td colspan="2"><label id="grey_12">实付:</label><input  value=0 maxlength="15" id="inputtext12"></td>
+	  </tr>
+	  
+      
+    </table>
+  </section>
+  <p class="p1"><button onclick="jisuan()">计算</button></p>
+</article>
+</div>
+  </body>
+</html>
