@@ -153,7 +153,7 @@ body { text-align: center; }
 		// 获取某个时间格式的时间戳
 		var stringTime = "2015-05-04 12:00:00";
 		var timestamp2 = Date.parse(new Date(stringTime));
-		var time = timestamp-timestamp2;
+		var time = Number(timestamp-timestamp2);
 		
 		var days = parseInt(time / (1000 * 60 * 60 * 24));
 		var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
