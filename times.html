@@ -160,8 +160,8 @@ body { text-align: center; }
 		var minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = parseInt((time % (1000 * 60)) / 1000);
 		//alert(days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 ");
-		document.getElementById("time").style.color="Red";
-		document.getElementById("time").innerText=days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 ";
+		document.getElementById("time").style.color="Green";
+		document.getElementById("time").innerText=Number(days) + " 天 " + Number(hours) + " 小时 " + Number(minutes) + " 分钟 " + Number(seconds) + " 秒 ";
 	}
 </script>
 
