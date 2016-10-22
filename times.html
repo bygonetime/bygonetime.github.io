@@ -152,15 +152,22 @@ body { text-align: center; }
 		var timestamp=new Date().getTime();
 		// 获取某个时间格式的时间戳
 		var stringTime = "2015-05-04 12:00:00";
-		var timestamp2 = Date.parse(new Date(stringTime));
+		//var timestamp2 = Date.parse(new Date(stringTime));//ios不支持解析
+		//var time = Number(timestamp-timestamp2);
+		
+		var arr = stringTime.split(/[- :]/),
+		date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
+		var timestamp2 = Date.parse(date);
 		var time = Number(timestamp-timestamp2);
 		
+		//alert(isNaN(Number(timestamp-timestamp2)));
 		var days = parseInt(time / (1000 * 60 * 60 * 24));
 		var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = parseInt((time % (1000 * 60)) / 1000);
 		//alert(days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 ");
-		document.getElementById("time").style.color="Green";
+		//alert(isNaN(days));
+		document.getElementById("time").style.color="Red";
 		document.getElementById("time").innerText=Number(days) + " 天 " + Number(hours) + " 小时 " + Number(minutes) + " 分钟 " + Number(seconds) + " 秒 ";
 	}
 </script>
