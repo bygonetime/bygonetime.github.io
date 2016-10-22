@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no" />
+
+<title>时光荏苒</title>
+
+<style>
+@keyframes pound {
+	to { transform: scale(1.4); }
+}
+.heart {
+	display: inline-block;
+	font-size: 150px;
+	color: #e00;
+	animation: pound .25s infinite alternate;
+	transform-origin: center;
+}
+body { text-align: center; }
+
+    body {
+        background: #eee;
+    }
+    
+    @keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            transform: rotate(1080deg);
+        }
+        100% {
+            transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-webkit-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: rotate(1080deg);
+        }
+        100% {
+            -webkit-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-moz-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -moz-transform: rotate(1080deg);
+        }
+        100% {
+            -moz-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-ms-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -ms-transform: rotate(1080deg);
+        }
+        100% {
+            -ms-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    @-o-keyframes mysnow {
+        0% {
+            bottom: 100%;
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            -o-transform: rotate(1080deg);
+        }
+        100% {
+            -o-transform: rotate(0deg);
+            opacity: 0;
+            bottom: 0;
+        }
+    }
+    
+    .roll {
+        position: absolute;
+        opacity: 0;
+        animation: mysnow 5s;
+        -webkit-animation: mysnow 5s;
+        -moz-animation: mysnow 5s;
+        -ms-animation: mysnow 5s;
+        -o-animation: mysnow 5s;
+        height: 80px;
+    }
+    
+    .div {
+        position: fixed;
+    }
+    </style>
+
+</head>
+
+<script>
+(function() {
+    function snow(left, height, src) {
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        div.appendChild(img);
+        img.className = "roll";
+        img.src = src;
+        div.style.left = left + "px";
+        div.style.height = height + "px";
+        div.className = "div";
+        document.getElementById("snowzone").appendChild(div);
+        setTimeout(function() {
+            document.getElementById("snowzone").removeChild(div);
+            // console.log(window.innerHeight); 
+        }, 5000);
+    }
+    setInterval(function() {
+        var left = Math.random() * window.innerWidth;
+        var height = Math.random() * window.innerHeight;
+        var src = "s" + Math.floor(Math.random() * 2 + 1) + ".png"; //两张图片分别为"s1.png"、"s2.png" 
+        snow(left, height, src);
+		showTime();
+    }, 500);
+})();
+
+	function showTime(){
+		var timestamp=new Date().getTime();
+		// 获取某个时间格式的时间戳
+		var stringTime = "2015-05-04 12:00:00";
+		var timestamp2 = Date.parse(new Date(stringTime));
+		var time = timestamp-timestamp2;
+		
+		var days = parseInt(time / (1000 * 60 * 60 * 24));
+		var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = parseInt((time % (1000 * 60)) / 1000);
+		//alert(days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 ");
+		document.getElementById("time").style.color="Red";
+		document.getElementById("time").innerText=days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 ";
+	}
+</script>
+
+<body>
+<div id="snowzone">
+<div class="heart">♥</div>
+<div id="time"></div>
+
+</div>
+</body>
+</html>
